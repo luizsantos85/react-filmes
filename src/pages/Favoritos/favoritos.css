@@ -1,0 +1,39 @@
+.favoritos {
+   margin-top: 30px;
+}
+.favoritos h1 {
+   margin-bottom: 20px;
+   text-align: center;
+}
+.favoritos .sem-filmes{
+   text-align: center;
+   display: block;
+}
+.favoritos ul {
+   width: 720px;
+}
+.favoritos ul li {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   border-bottom: 2px dotted #ccc;
+   padding: 10px 0;
+}
+.favoritos div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.favoritos a {
+    margin-right: 15px;
+    color: inherit;
+    color: #3498db;
+}
+.favoritos button {
+    border: 0;
+    background-color: #c0392b;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    color: #fff;
+}
