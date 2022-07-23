@@ -1,6 +1,7 @@
 import './filme.css';
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { api } from '../../services/api';
 import { Loading } from '../../components/Loading';
 
@@ -39,16 +40,16 @@ export const Filme = () => {
    const handleFilmSave = () => {
       const myList = localStorage.getItem('@primeflix');
       let filmSave = JSON.parse(myList) || [];
-      
+
       const hasFilm = filmSave.some((filmsSave) => filmsSave.id === filme.id); //verifica se já existe item no localstorage
       if (hasFilm) {
-         alert('Filme já incluso');
+         toast.warn('Filme já incluso!');
          return;
       }
 
       filmSave.push(filme);
       localStorage.setItem('@primeflix', JSON.stringify(filmSave));
-      alert('Filme salvo com sucesso!');
+      toast.success('Filme salvo com sucesso!');
    };
 
    if (loading) {
