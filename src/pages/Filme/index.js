@@ -1,26 +1,31 @@
 import './filme.css';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { api } from '../../services/api';
 import { Loading } from '../../components/Loading';
 
 export const Filme = () => {
    const { id } = useParams();
+   const navigate = useNavigate();
+
    const [filme, setFilme] = useState({});
    const [loading, setLoading] = useState(true);
 
    useEffect(() => {
       async function getFilme() {
-         const response = await api.get(`/movie/${id}`, {
-            params: {
-               api_key: process.env.REACT_APP_API_KEY,
-               language: 'pt-BR',
-            },
-         });
-         try {
-            setFilme(response.data);
-            setLoading(false);
-         } catch (error) {}
+         await api
+            .get(`/movie/${id}`, {
+               params: {
+                  api_key: process.env.REACT_APP_API_KEY,
+                  language: 'pt-BR',
+               },
+            })
+            .then((response) => {
+               setFilme(response.data);
+               setLoading(false);
+            })
+            .catch(() => {});
       }
       getFilme();
 
