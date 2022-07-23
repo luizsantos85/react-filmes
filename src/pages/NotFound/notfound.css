@@ -1,0 +1,26 @@
+.notfound{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: calc(100vh - 60px);
+}
+
+.notfound h1{
+    font-size: 5rem;
+    font-weight: lighter;
+}
+
+.notfound h2{
+    margin-top: 10px;
+    font-size: 2rem;
+}
+
+.notfound a{
+    margin-top: 15px;
+    background-color: #3498db;
+   color: #fff;
+   padding: 10px 20px;
+   border-radius: 10px;
+}
