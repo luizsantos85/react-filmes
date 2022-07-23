@@ -5,7 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 function App() {
    return (
       <div className="app">
-         <ToastContainer autoClose={1500} transition={Flip}  theme="colored"/>
+         <ToastContainer autoClose={1500} transition={Flip}  theme="dark"/>
          <RoutesApp />
       </div>
    );
