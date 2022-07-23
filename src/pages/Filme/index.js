@@ -1,6 +1,5 @@
 import './filme.css';
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
 import { useParams, useNavigate } from 'react-router-dom';
 import { api } from '../../services/api';
 import { Loading } from '../../components/Loading';
@@ -25,14 +24,17 @@ export const Filme = () => {
                setFilme(response.data);
                setLoading(false);
             })
-            .catch(() => {});
+            .catch(() => {
+               navigate('/', { replace: true });
+               return;
+            });
       }
       getFilme();
 
       return () => {
          console.log('Componente desmontado!');
       };
-   }, [id]);
+   }, [id, navigate]);
 
    if (loading) {
       return <Loading />;
@@ -54,7 +56,13 @@ export const Filme = () => {
          <div className="buttons">
             <button>Salvar</button>
             <button>
-               <a href="#">Trailer</a>
+               <a
+                  href={`https://youtube.com/results?search_query=${filme.title} trailer`}
+                  target="_blank"
+                  rel="noreferrer"
+               >
+                  Trailer
+               </a>
             </button>
          </div>
       </div>
